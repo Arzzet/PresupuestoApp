@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Gasto } from './gasto.model';
+import { GastoServicio } from './gasto.servicio';
 
 @Component({
   selector: 'app-gasto',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GastoComponent implements OnInit {
 
-  constructor() { }
+  gastos:Gasto[] = [];
+  @Input() ingresoTotal:number;
 
-  ngOnInit(): void {
+
+  constructor(private gastosServicio:GastoServicio) { }
+
+  ngOnInit() {
+    this.gastos = this.gastosServicio.gastos;
+  }
+
+  eliminarGasto(gasto:Gasto){
+    this.gastosServicio.eliminar(gasto);
+  }
+
+  calcularPorcentaje(gasto:Gasto){
+    return gasto.valor/this.ingresoTotal;
   }
 
 }

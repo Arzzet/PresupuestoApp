@@ -2,27 +2,17 @@
     <h2 class="gasto_titulo">Gastos</h2>
        
         
-        <div class="elemento limpiarEstilos" >
-            <div class="elemento_descripcion">Alquiler piso</div>
+        <div *ngFor="let gasto of gastos" class="elemento limpiarEstilos" >
+            <div class="elemento_descripcion">{{gasto.descripcion}}</div>
             <div class="right limpiarEstilos">
-                <div class="elemento_valor">- 900.00</div>
-                <div class="elemento_porcentaje">21%</div>
+                <div class="elemento_valor">- {{gasto.valor}}</div>
+                <div class="elemento_porcentaje">{{calcularPorcentaje(gasto)}}%</div>
                 <div class="elemento_eliminar">
-                    <button class="elemento_eliminar--btn"><i class="ion-ios-close-outline"></i></button>
+                    <button class="elemento_eliminar--btn"><i class="ion-ios-close-outline" (click)=eliminarGasto(gasto)></i></button>
                 </div>
             </div>
         </div>
 
-        <div class="elemento limpiarEstilos" >
-            <div class="elemento_descripcion">ps5</div>
-            <div class="right limpiarEstilos">
-                <div class="elemento_valor">- 499.00</div>
-                <div class="elemento_porcentaje">10%</div>
-                <div class="elemento_eliminar">
-                    <button class="elemento_eliminar--btn"><i class="ion-ios-close-outline"></i></button>
-                </div>
-            </div>
-        </div>
         
         
 </div>

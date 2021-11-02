@@ -7,14 +7,9 @@
 
 <app-formulario></app-formulario>
 
-
-
-
-  
-  <div class="contenedor limpiarEstilos">
-      
-      <app-ingreso></app-ingreso>
-
-      <app-gasto></app-gasto>
-      
-  </div>
+<div class="contenedor limpiarEstilos">
+  <app-ingreso></app-ingreso>
+  <app-gasto
+     [ingresoTotal]="getIngresoTotal()"
+  ></app-gasto>
+</div>
